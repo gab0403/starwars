@@ -4,6 +4,7 @@ import ApiContext from './ApiContext';
 
 function Provider({ children }) {
   const [api, setApi] = useState([]);
+  const [filterByName, setFilterByName] = useState({ name: '' });
 
   useEffect(() => {
     const getPlanets = async () => {
@@ -15,6 +16,8 @@ function Provider({ children }) {
 
   const contextApi = {
     api,
+    filterByName,
+    setFilterByName,
   };
 
   return (

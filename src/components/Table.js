@@ -1,12 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import ApiContext from '../context/ApiContext';
 
 function Table() {
-  const { api } = useContext(ApiContext);
+  const { api, filterByName } = useContext(ApiContext);
+  const [filterApiPlanets, setFilterApiPlanets] = useState([]);
+
+  useEffect(() => {
+    const filterApiName = api.filter(
+      (e) => e.name.toLowerCase().includes(filterByName.toString().toLowerCase()),
+    );
+
+    setFilterApiPlanets(filterApiName.length > 0 ? filterApiName : api);
+  }, [api, filterByName]);
 
   return (
     <section>
-      <h1>Tabela</h1>
       <table>
         <thead>
           <tr>
@@ -26,7 +34,7 @@ function Table() {
           </tr>
         </thead>
         <tbody>
-          {api.map((e) => (
+          {filterApiPlanets.map((e) => (
             <tr key={ e.name }>
               <td>{ e.name }</td>
               <td>{ e.rotation_period }</td>

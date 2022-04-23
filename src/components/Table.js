@@ -1,13 +1,14 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import ApiContext from '../context/ApiContext';
 
 function Table() {
-  const { api, filterByName } = useContext(ApiContext);
-  const [filterApiPlanets, setFilterApiPlanets] = useState([]);
+  const { api, filterByName,
+    filterApiPlanets, setFilterApiPlanets } = useContext(ApiContext);
 
   useEffect(() => {
     const filterApiName = api.filter(
-      (e) => e.name.toLowerCase().includes(filterByName.toString().toLowerCase()),
+      (planet) => planet.name.toLowerCase()
+        .includes(filterByName.toString().toLowerCase()),
     );
 
     setFilterApiPlanets(filterApiName.length > 0 ? filterApiName : api);

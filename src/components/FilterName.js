@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import ApiContext from '../context/ApiContext';
 
-function Filters() {
+function FilterName() {
   const { filterByName, setFilterByName } = useContext(ApiContext);
   return (
 
@@ -14,4 +14,4 @@ function Filters() {
   );
 }
 
-export default Filters;
+export default FilterName;

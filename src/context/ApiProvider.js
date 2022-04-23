@@ -15,6 +15,12 @@ function Provider({ children }) {
   const [filterValue, setFilterValue] = useState(0);
   const [filterApiPlanets, setFilterApiPlanets] = useState([]);
   const [multiplesFilters, setMultiplesFilters] = useState([]);
+  const [columns, setColumns] = useState([
+    'population',
+    'orbital_period',
+    'diameter',
+    'rotation_period',
+    'surface_water']);
 
   useEffect(() => {
     const getPlanets = async () => {
@@ -24,12 +30,16 @@ function Provider({ children }) {
     getPlanets();
   }, []);
 
+  const removeColumn = (column) => {
+    const columnsRemove = columns.filter((e) => e !== column);
+    setColumns(columnsRemove);
+  };
+
   const aplicationFilter = () => {
     setMultiplesFilters(
       (prevState) => [...prevState,
         { column: filterColumn, comparison: filterComparison, value: filterValue }],
     );
-    console.log('click');
   };
 
   useEffect(() => {
@@ -47,6 +57,7 @@ function Provider({ children }) {
         ));
         newArray = filter;
       }
+      removeColumn(column);
     });
 
     setFilterApiPlanets(newArray);
@@ -80,6 +91,7 @@ function Provider({ children }) {
     multiplesFilters,
     removeAllFilters,
     removeFilter,
+    columns,
   };
 
   return (

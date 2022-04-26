@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import ApiContext from '../context/ApiContext';
+import './FilterNumber.css';
 
 function FilterNumber() {
   const {
@@ -17,7 +18,7 @@ function FilterNumber() {
   } = useContext(ApiContext);
 
   return (
-    <div>
+    <div className="filters-numbers">
       <select
         data-testid="column-filter"
         value={ filterColumn }

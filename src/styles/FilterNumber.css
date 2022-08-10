@@ -1,0 +1,43 @@
+.pricipal-div {
+  background-color: black;
+  padding: 5px;
+}
+
+.filters-numbers {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #fcdf2b;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-left: 5px;
+  padding: 10px;
+}
+
+.select-filter {
+  border-radius: 5px;
+  font-size: 16px;
+  width: 200px;
+}
+
+.input-filter {
+  border-radius: 5px;
+  font-size: 16px;
+  width: 200px;
+}
+
+.div-result {
+  display: flex;
+  justify-content: space-evenly;
+  margin-right: 5px;
+}
+
+.result-filter {
+  color: white;
+  font-size: 20px;
+  margin-top: 10px;
+}

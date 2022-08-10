@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import ApiContext from '../context/ApiContext';
+import '../styles/Table.css';
 
 function Table() {
   const { api, filterByName,
@@ -15,9 +16,9 @@ function Table() {
   }, [api, filterByName]);
 
   return (
-    <section>
+    <section className="table">
       <table>
-        <thead>
+        <thead className="tablee">
           <tr>
             <th>Name</th>
             <th>Rotation Period</th>

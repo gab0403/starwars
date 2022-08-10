@@ -1,0 +1,5 @@
+.table {
+  border: solid black 5px;
+  margin: 10px;
+  overflow: auto;
+}
